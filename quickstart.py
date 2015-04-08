@@ -11,7 +11,7 @@ import argparse
 from oauth2client import tools
 
 # Path to the client_secret.json file downloaded from the Developer Console
-CLIENT_SECRET_FILE = 'client_secret_977858608003-88dimr9dibrhr6p07oouj7po6gc931gc.apps.googleusercontent.com.json'
+CLIENT_SECRET_FILE = 'client_secret_977858608003-87f3rcgdrudmnqlrgu8bff877qdf6qgs.apps.googleusercontent.com.json'
 
 if not os.path.isfile(CLIENT_SECRET_FILE):
     with open(CLIENT_SECRET_FILE, 'a') as the_file:
