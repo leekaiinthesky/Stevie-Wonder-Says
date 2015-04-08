@@ -7,7 +7,8 @@ from apiclient.discovery import build
 from oauth2client.client import flow_from_clientsecrets
 from oauth2client.file import Storage
 from oauth2client.tools import run
-
+import argparse
+from oauth2client import tools
 
 # Path to the client_secret.json file downloaded from the Developer Console
 CLIENT_SECRET_FILE = 'client_secret_977858608003-88dimr9dibrhr6p07oouj7po6gc931gc.apps.googleusercontent.com.json'
@@ -29,7 +30,11 @@ http = httplib2.Http()
 # Try to retrieve credentials from storage or run the flow to generate them
 credentials = STORAGE.get()
 if credentials is None or credentials.invalid:
-  credentials = run(flow, STORAGE, http=http)
+  #credentials = run(flow, STORAGE, http=http)
+
+  parser = argparse.ArgumentParser(parents=[tools.argparser])
+  flags = parser.parse_args()
+  credentials = tools.run_flow(flow, STORAGE, flags)
 
 # Authorize the httplib2.Http object with our credentials
 http = credentials.authorize(http)
