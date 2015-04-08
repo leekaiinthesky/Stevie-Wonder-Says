@@ -1,6 +1,7 @@
 #!/usr/bin/python
 
 import httplib2
+import os
 
 from apiclient.discovery import build
 from oauth2client.client import flow_from_clientsecrets
@@ -10,6 +11,10 @@ from oauth2client.tools import run
 
 # Path to the client_secret.json file downloaded from the Developer Console
 CLIENT_SECRET_FILE = 'client_secret_977858608003-88dimr9dibrhr6p07oouj7po6gc931gc.apps.googleusercontent.com.json'
+
+if not os.path.isfile(CLIENT_SECRET_FILE):
+    with open(CLIENT_SECRET_FILE, 'a') as the_file:
+        the_file.write(os.getenv("GMAIL_CLIENT_SECRET"))
 
 # Check https://developers.google.com/gmail/api/auth/scopes for all available scopes
 OAUTH_SCOPE = 'https://www.googleapis.com/auth/gmail.modify'
