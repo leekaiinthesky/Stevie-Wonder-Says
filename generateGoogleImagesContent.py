@@ -37,7 +37,7 @@ def getNImages(s, n):
 
     imageUrls = map(lambda l: urllib2.unquote(urllib2.unquote(l[:l.find('&amp;imgref')])), r.text.split('imgurl=')[1:])
 
-    randomIndices = random.sample(xrange(10 * n), n) # try only using 3n
+    randomIndices = sorted(random.sample(xrange(10 * n), n)) # try only using 3n
 
     return [imageUrls[i] for i in randomIndices]
 
