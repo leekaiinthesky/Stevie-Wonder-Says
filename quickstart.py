@@ -28,7 +28,8 @@ flow = flow_from_clientsecrets(CLIENT_SECRET_FILE, scope=OAUTH_SCOPE)
 http = httplib2.Http()
 
 # Try to retrieve credentials from storage or run the flow to generate them
-credentials = STORAGE.get()
+#credentials = STORAGE.get()
+credentials = os.getenv("GMAIL_STORAGE")
 if credentials is None or credentials.invalid:
   #credentials = run(flow, STORAGE, http=http)
 
