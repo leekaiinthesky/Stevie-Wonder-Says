@@ -3,5 +3,3 @@ pyteaser==2.0
 httplib2==0.9
 google-api-python-client==1.4.0
 oauth2client==1.4.6
-matplotlib==1.4.3
-numpy==1.9.2
