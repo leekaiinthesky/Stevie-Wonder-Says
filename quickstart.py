@@ -17,6 +17,10 @@ if not os.path.isfile(CLIENT_SECRET_FILE):
     with open(CLIENT_SECRET_FILE, 'a') as the_file:
         the_file.write(os.getenv("GMAIL_CLIENT_SECRET"))
 
+if not os.path.isfile('gmail.storage'):
+    with open('gmail.storage', 'a') as the_file:
+        the_file.write(os.getenv("GMAIL_STORAGE"))
+
 # Check https://developers.google.com/gmail/api/auth/scopes for all available scopes
 OAUTH_SCOPE = 'https://www.googleapis.com/auth/gmail.modify'
 
