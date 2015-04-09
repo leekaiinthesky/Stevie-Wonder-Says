@@ -6,8 +6,7 @@ with open('listOfMonarchs.txt') as f:
 with open('featuredMonarchs.txt') as f:
     featured = set(f.read().splitlines())
 
-print len(monarchs)
-print len(featured)
+# put a monarch that isn't in 'featuredMonarchs.txt' into 'chosenMonarch.txt'
 
-# print random.choice(list(monarchs - featured))
-# Richard I of England
+with open('chosenMonarch.txt', 'w') as f:
+    f.write(random.choice(list(monarchs - featured)))

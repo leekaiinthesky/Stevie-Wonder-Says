@@ -18,15 +18,23 @@ else:
 # the best thing about ebay... all this memorabilia about so-and-so
 # after we run out of monarchs, do one on monarch butterflies, then one on charmin toilet paper, then one on nomes and mention nomarch
 
-s = 'George VI' # who will it be next week?
+with open('listOfMonarchs.txt') as f:
+    monarchs = set(f.read().splitlines())
+
+with open('featuredMonarchs.txt') as f:
+    featured = set(f.read().splitlines())
+
+with open('chosenMonarch.txt') as f:
+    s = f.read()
+
 wikipediaUrl = 'http://en.wikipedia.org/wiki/' + s.replace(' ', '_')
 
 sender = 'Stevie Wonder Says <steviewondersays@gmail.com>'
-subject = s + ' production = False' #take this out
+subject = s + ' (production = False) (' + str(len(monarchs) - len(featured) - 1) + ' features queued)'
 to = 'free.leekai@gmail.com'
 
 if production == True:
-    #to = 'Stevie Wonder Says <steviewondersays@googlegroups.com>'
+    to = 'Stevie Wonder Says <steviewondersays@googlegroups.com>'
     subject = s
 
 messageText = "Today's subject is " + s + '.<br /><br />Did you know...?<br /><br />'
@@ -51,3 +59,7 @@ if postToTumblr == True:
     tumblrEmail = '5v0tjjeaateiq@tumblr.com'
     message = sendEmail.CreateMessage(sender, tumblrEmail, subject, messageText + " #" + s)
     sendEmail.SendMessage(quickstart.gmail_service, 'me', message)
+
+if production == True:
+    with open('featuredMonarchs.txt', 'a') as f:
+        f.write(s + '\n')
