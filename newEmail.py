@@ -1,8 +1,18 @@
 # coding: utf-8
+import argparse
 import quickstart
 import sendEmail
 import generateGoogleImagesContent as im
 from pyteaser import SummarizeUrl
+
+parser = argparse.ArgumentParser(description='Process some integers.')
+parser.add_argument('prodString')
+args = parser.parse_args()
+
+if args.prodString == 'production':
+    production = True
+else:
+    production = False
 
 # more ideas - ebay stuff, random amazon reviews, guest post from bitofnews bot from my friend Bonnie
 # the best thing about ebay... all this memorabilia about so-and-so
@@ -12,13 +22,12 @@ s = 'George VI' # who will it be next week?
 wikipediaUrl = 'http://en.wikipedia.org/wiki/' + s.replace(' ', '_')
 
 sender = 'Stevie Wonder Says <steviewondersays@gmail.com>'
-subject = s + ' testing bonniebot captions' #take this out
+subject = s + ' production = False' #take this out
 to = 'free.leekai@gmail.com'
 
-production = False # change this before production
 if production == True:
-    to = 'Stevie Wonder Says <steviewondersays@googlegroups.com>'
-
+    #to = 'Stevie Wonder Says <steviewondersays@googlegroups.com>'
+    subject = s
 
 messageText = "Today's subject is " + s + '.<br /><br />Did you know...?<br /><br />'
 
