@@ -46,7 +46,7 @@ for i in xrange(5):
     messageText += sentences[i].encode('utf-8') + '<br /><br />'
     messageText += '<center><img style="max-height: 480px; max-width: 480px;" alt="one of the best pictures of ' + s + '"" src="' + imageUrls[i].encode('utf-8') + '" /></center><br /><br />'
 
-messageText += "That's all for this week. Hope you learned something!<br /><br />Long live the queen,<br />Steve"
+messageText += "That's all for now. Have a great week!<br /><br />Long live the queen,<br />Steve"
 
 # feel free to write back with feedback or suggestions on how to improve my newsletter
 
