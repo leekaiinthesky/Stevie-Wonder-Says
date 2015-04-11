@@ -4,6 +4,10 @@ import quickstart
 import sendEmail
 import generateGoogleImagesContent as im
 from pyteaser import SummarizeUrl
+import time
+import random
+
+time.sleep(random.randint(0, 30) * 60)
 
 parser = argparse.ArgumentParser(description='Process some integers.')
 parser.add_argument('prodString')
