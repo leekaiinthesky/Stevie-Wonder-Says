@@ -7,14 +7,13 @@ from pyteaser import SummarizeUrl
 import time
 import random
 
-time.sleep(random.randint(0, 30) * 60)
-
 parser = argparse.ArgumentParser(description='Process some integers.')
 parser.add_argument('prodString')
 args = parser.parse_args()
 
 if args.prodString == 'production':
     production = True
+    time.sleep(random.randint(0, 30) * 60)
 else:
     production = False
 
@@ -41,7 +40,9 @@ if production == True:
     to = 'Stevie Wonder Says <steviewondersays@googlegroups.com>'
     subject = s
 
-messageText = "Today's subject is " + s + '.<br /><br />Did you know...?<br /><br />'
+messageText = random.choice(["Today's subject is ", "This week's subject is ", "Today let's have a look at ", "Today's topic is ", "Today let's discuss "])
+
+messageText += s + '.<br /><br />Did you know...?<br /><br />'
 
 imageUrls = im.getNImages(s, 5)
 sentences = SummarizeUrl(wikipediaUrl)
@@ -61,7 +62,7 @@ sendEmail.SendMessage(quickstart.gmail_service, 'me', message)
 postToTumblr = production # or hard code if necessary
 if postToTumblr == True:
     tumblrEmail = '5v0tjjeaateiq@tumblr.com'
-    message = sendEmail.CreateMessage(sender, tumblrEmail, subject, messageText + " #" + s)
+    message = sendEmail.CreateMessage(sender, tumblrEmail, s, messageText + " #" + s)
     sendEmail.SendMessage(quickstart.gmail_service, 'me', message)
 
 if production == True:
