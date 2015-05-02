@@ -42,7 +42,7 @@ if production == True:
 
 messageText = random.choice(["Today's subject is ", "This week's subject is ", "Today let's have a look at ", "Today's topic is ", "Today let's discuss "])
 
-messageText += s + '.<br /><br />Did you know...?<br /><br />'
+messageText += s + '. Did you know...?<br /><br />'
 
 imageUrls = im.getNImages(s, 5)
 sentences = SummarizeUrl(wikipediaUrl)
