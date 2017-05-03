@@ -2,6 +2,7 @@ import requests
 import urllib2, json
 import HTMLParser # I'm still on Python 2
 import random
+import re
 
 def getNImagesWithDescription(s, n):
     messageText = ''
@@ -35,7 +36,8 @@ def getNImages(s, n):
     url = 'http://images.google.com/search'
     r = requests.get(url, params={'q': s, 'tbm': 'isch', 'gbv': '2'}, headers=headers)
 
-    imageUrls = map(lambda l: urllib2.unquote(urllib2.unquote(l[:l.find('&amp;imgref')])), r.text.split('imgurl=')[1:])
+    p = re.compile('<img[^>]*data-src="([^>\"]*)"[^>]*>') # there are ones that are only src= too, but ignoring those for now
+    imageUrls = p.findall(r.text)[1:]
 
     randomIndices = sorted(random.sample(xrange(10 * n), n)) # try only using 3n
 

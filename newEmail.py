@@ -30,6 +30,8 @@ with open('featuredMonarchs.txt') as f:
 with open('chosenMonarch.txt') as f:
     s = f.read()
 
+print(s)
+
 wikipediaUrl = 'http://en.wikipedia.org/wiki/' + s.replace(' ', '_')
 
 sender = 'Stevie Wonder Says <steviewondersays@gmail.com>'
