@@ -1,5 +1,3 @@
-
+*.pyc
+*.json
 gmail.storage
-
-client_secret_977858608003-87f3rcgdrudmnqlrgu8bff877qdf6qgs.apps.googleusercontent.com.json
-client_secret_977858608003-h3a8qgjgsp9b9s5uiohvfpj47rodskmj.apps.googleusercontent.com.json

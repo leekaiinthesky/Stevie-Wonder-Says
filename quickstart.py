@@ -10,15 +10,15 @@ import argparse
 from oauth2client import tools
 
 # Path to the client_secret.json file downloaded from the Developer Console
-CLIENT_SECRET_FILE = 'client_secret_977858608003-h3a8qgjgsp9b9s5uiohvfpj47rodskmj.apps.googleusercontent.com.json'
+CLIENT_SECRET_FILE = 'client_secret_977858608003-4a8c60lbt40j82rok0samiof5a178uso.apps.googleusercontent.com.json'
 
 if not os.path.isfile(CLIENT_SECRET_FILE):
     with open(CLIENT_SECRET_FILE, 'a') as the_file:
         the_file.write(os.getenv("GMAIL_CLIENT_SECRET"))
 
-if not os.path.isfile('gmail.storage'):
-    with open('gmail.storage', 'a') as the_file:
-        the_file.write(os.getenv("GMAIL_STORAGE"))
+# if not os.path.isfile('gmail.storage'):
+#     with open('gmail.storage', 'a') as the_file:
+#         the_file.write(os.getenv("GMAIL_STORAGE"))
 
 # Check https://developers.google.com/gmail/api/auth/scopes for all available scopes
 OAUTH_SCOPE = 'https://www.googleapis.com/auth/gmail.modify'
