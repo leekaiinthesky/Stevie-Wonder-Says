@@ -13,7 +13,7 @@ args = parser.parse_args()
 
 if args.prodString == 'production':
     production = True
-    time.sleep(random.randint(0, 30) * 60)
+    # time.sleep(random.randint(0, 30) * 60)
 else:
     production = False
 
