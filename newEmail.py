@@ -48,6 +48,8 @@ messageText += s + '.<br /><br />Did you know...?<br /><br />'
 
 imageUrls = im.getNImages(s, 5)
 sentences = SummarizeUrl(wikipediaUrl)
+if sentences is None:
+    sentences = ['Little is known about ' + s + '.'] * 5
 
 for i in xrange(5):
     messageText += sentences[i].encode('utf-8') + '<br /><br />'
@@ -61,7 +63,7 @@ message = sendEmail.CreateHTMLMessage(sender, to, subject, messageText)
 sendEmail.SendMessage(quickstart.gmail_service, 'me', message)
 
 ### Below is for posting to Tumblr
-postToTumblr = production # or hard code if necessary
+postToTumblr = False # or hard code if necessary
 if postToTumblr == True:
     tumblrEmail = '5v0tjjeaateiq@tumblr.com'
     message = sendEmail.CreateMessage(sender, tumblrEmail, s, messageText + " #" + s)
