@@ -36,7 +36,7 @@ wikipediaUrl = 'http://en.wikipedia.org/wiki/' + s.replace(' ', '_')
 
 sender = 'Stevie Wonder Says <steviewondersays@gmail.com>'
 subject = s + ' (production = False) (' + str(len(monarchs) - len(featured) - 1) + ' features queued)'
-to = 'free.leekai@gmail.com'
+to = 'test-email'
 
 if production == True:
     to = 'Stevie Wonder Says <steviewondersays@googlegroups.com>'
